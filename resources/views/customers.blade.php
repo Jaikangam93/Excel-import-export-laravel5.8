@@ -3,11 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Customer </div>
-                    <a href="{{ route('export')}}" class="btn btn-primary"> Export to XLSX </a> 
-               
+                    <div class="col=lg-3">
+                        <a href="{{ route('export')}}" class="btn btn-primary"> Export to XLSX </a> 
+                    </div> 
                     <hr>
                         <form  method="POST" action="{{ route('import')}}" enctype="multipart/form-data">
                             @csrf
@@ -23,6 +24,8 @@
                             <tr>
                                 <th scope="col">Name </th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Date </th>
+                                <th scope="col">Password </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +33,8 @@
                                 <tr>
                                     <td>{{ $user->name}}</td>
                                     <td>{{ $user->email}}</td>
+                                    <td>{{ $user->certi_date}}</td>
+                                    <td>{{ $user->password}}</td>
                                 </tr>
                             @empty 
                                     <tr>

@@ -16,9 +16,9 @@ class UsersImport implements ToModel
     {
         return new User([
             'name'     => $row[1],
-            'email'    => $row[2], 
-            'password'    =>  $row[3], 
-           
+            'email'    => $row[2],
+            'certi_date' => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[3]),
+            'password' =>  \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[4]),
         ]);
     }
 }
